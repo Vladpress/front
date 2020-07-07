@@ -45,6 +45,7 @@ const ModalWin = ({ data, classes, onClose, handleSubmit }) =>
       >
         {props => {
           console.log('formik props', props.errors);
+          
           return (
             <form onSubmit={props.handleSubmit} className={styles.form_modal} noValidate autoComplete="off">
 
