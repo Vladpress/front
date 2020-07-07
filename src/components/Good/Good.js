@@ -14,7 +14,8 @@ import EditIcon from '@material-ui/icons/Edit';
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
-        margin: "20px auto"
+        margin: "20px auto",
+        textAlign: "center"
     },
     media: {
         height: 140,
@@ -28,7 +29,7 @@ export default function Good ({ productName, salePrice, _id, img, history, openE
             <Card className={classes.root}>
                 <CardActionArea onClick={() => history.push(`/goods/${_id}`)}>
                     <CardMedia
-                        style={{height: "450px", width: "350px"}} 
+                        style={{height: "360px", width: "350px"}} 
                         className={classes.media}
                         image={img || "../../img/1.png"} 
                         title="Good"

@@ -6,12 +6,12 @@
     margin: auto;
 }
 
-.heading-wrapper {
+.heading_wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.main-heading {
+.main_heading {
     margin: 0;
 }

@@ -1,4 +1,4 @@
-.form-modal {
+.form_modal {
     background-color: azure;
     width: 360px;
     text-align: center;
@@ -6,8 +6,8 @@
     border-radius: 5px;
     background: #e0e9f9;
 }
-.buttons-wrapper {
-    
+
+.buttons_wrapper {    
     display: flex;
     padding: 15px 60px;
     justify-content: space-around;
