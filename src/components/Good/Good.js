@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Good ({ productName, salePrice, _id, img, history, openEditModal }) {
+export default function Good ({ item, history, openEditModal }) {
+    const {productName, salePrice, img, _id} = item;
     const classes = useStyles();
     return (
         <div className="good">
@@ -39,7 +40,7 @@ export default function Good ({ productName, salePrice, _id, img, history, openE
                             {productName && productName}
                         </Typography>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {salePrice}     
+                            {salePrice && salePrice}     
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging

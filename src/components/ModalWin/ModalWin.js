@@ -26,68 +26,70 @@ const useStyles = theme => ({
 });
 
 const ModalWin = ({ data, classes, onClose, handleSubmit }) =>
+{
+  console.log("data", data)
+  return (
   <Modal
-    aria-labelledby="transition-modal-title"
-    aria-describedby="transition-modal-description"
-    className={classes.modal}
-    open={!!data._id}
-    onClose={onClose}
-    closeAfterTransition
-    BackdropComponent={Backdrop}
-    BackdropProps={{
-      timeout: 500,
-    }}
-  >
-    <div>
-      <Formik
-        initialValues={{ productName: data.productName, price: data.salePrice, img: data.img, id: data._id }}
-        onSubmit={handleSubmit}
-      >
-        {props => {
-          console.log('formik props', props.errors);
-          
-          return (
-            <form onSubmit={props.handleSubmit} className={styles.form_modal} noValidate autoComplete="off">
+  aria-labelledby="transition-modal-title"
+  aria-describedby="transition-modal-description"
+  className={classes.modal}
+  open={!!data._id}
+  onClose={onClose}
+  closeAfterTransition
+  BackdropComponent={Backdrop}
+  BackdropProps={{
+    timeout: 500,
+  }}
+>
+  <div>
+    <Formik
+      initialValues={{ productName: data.productName || '', price: data.salePrice || "", img: data.img || "", id: data._id || null }}
+      onSubmit={handleSubmit}
+    >
+      {({values, handleChange, handleSubmit, errors}) => {
+        return (
+          <form onSubmit={handleSubmit} className={styles.form_modal} noValidate autoComplete="off">
 
-              <TextField
-              className={classes.textFields}
-              value={props.values.productName}
-              onChange={props.handleChange}
-              name="productName"
-              label="productName"
-              variant="outlined"
-              helperText={props.errors.productName}
-              error={Boolean(props.errors.productName)}
-              />
+            <TextField
+            className={classes.textFields}
+            value={values.productName}
+            onChange={handleChange}
+            name="productName"
+            label="productName"
+            variant="outlined"
+            helperText={errors.productName}
+            error={Boolean(errors.productName)}
+            />
 
-              <TextField
-              className={classes.textFields}
-              value={props.values.price}
-              onChange={props.handleChange}
-              name="price"
-              label="Price"
-              variant="outlined"
-              />
+            <TextField
+            className={classes.textFields}
+            value={values.price}
+            onChange={handleChange}
+            name="price"
+            label="Price"
+            variant="outlined"
+            />
 
-              <TextField
-              className={classes.textFields}
-              value={props.values.img}
-              onChange={props.handleChange}
-              name="img"
-              label="Image"
-              variant="outlined"
-              />
+            <TextField
+            className={classes.textFields}
+            value={values.img}
+            onChange={handleChange}
+            name="img"
+            label="Image"
+            variant="outlined"
+            />
 
-              <div className={styles.buttons_wrapper}>
-                <Button onClick={onClose} variant="contained">Cancel</Button>
-                <Button type="submit" variant="contained" color="primary">Ok</Button>
-              </div>
-            </form>
-          )
-        }}
-      </Formik>
-    </div>
-  </Modal>
+            <div className={styles.buttons_wrapper}>
+              <Button onClick={onClose} variant="contained">Cancel</Button>
+              <Button type="submit" variant="contained" color="primary">Ok</Button>
+            </div>
+          </form>
+        )
+      }}
+    </Formik>
+  </div>
+</Modal>
+)}
 
 
 export default withStyles(useStyles)(ModalWin);

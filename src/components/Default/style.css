@@ -1,0 +1,7 @@
+.default img {
+    width: 100%;
+}
+
+.default {
+    border: 1px solid red;
+}
